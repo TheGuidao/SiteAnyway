@@ -348,8 +348,9 @@ img {
     to { opacity: 1; }
 }
 
+/* FOTO DO SLIDER CRAVADA EM 300x300 */
 .slide-photo {
-    max-width: 300px;
+    width: 300px;
     height: 300px;
     margin: 0 auto 30px auto;
 }
@@ -375,11 +376,12 @@ img {
     text-transform: uppercase;
 }
 
+/* BOTÕES DO SLIDER CRAVADOS NO MEIO DA FOTO */
 .slider-btn {
     position: absolute;
-    top: 50%;
+    top: 190px; /* 40px de padding + 150px (metade da foto) = Nunca vai sair do lugar! */
     transform: translateY(-50%);
-    background-color: rgba(10, 10, 10, 0.5);
+    background-color: rgba(10, 10, 10, 0.7);
     border: 1px solid #444;
     color: var(--color-heading);
     font-size: 1.5rem;
@@ -555,7 +557,6 @@ img {
     color: var(--color-heading);
 }
 
-/* Grid e cards com tamanho controlado para uniformidade */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -567,14 +568,14 @@ img {
     text-decoration: none;
     color: inherit;
     display: block;
-    max-width: 320px; /* Largura máxima do card */
+    max-width: 320px;
     margin: 0 auto;
     width: 100%;
 }
 
 .product-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Garante que o card preencha a altura da grid row */
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -584,13 +585,12 @@ img {
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-/* NOVA LÓGICA PARA UNIFORMIZAR O TAMANHO DAS IMAGENS */
 .product-image-container {
     position: relative;
     overflow: hidden;
     border-radius: 5px 5px 0 0;
-    height: 320px; /* Força uma altura padrão para todos os produtos */
-    background-color: var(--color-surface); /* Fundo padrão para preencher espaços vazios */
+    height: 320px; 
+    background-color: var(--color-surface); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -599,10 +599,10 @@ img {
 .product-image,
 .product-image-hover {
     width: 100%;
-    height: 100%; /* Força a imagem a preencher a altura do contêiner */
-    object-fit: cover; /* A imagem é enquadrada e cortada para preencher o espaço sem esticar. */
+    height: 100%; 
+    object-fit: cover; 
     transition: opacity 0.4s ease;
-    position: absolute; /* Para o hover funcionar perfeitamente em cima da outra */
+    position: absolute; 
     top: 0;
     left: 0;
 }
@@ -611,7 +611,6 @@ img {
     opacity: 0;
 }
 
-/* Correção do efeito fantasma, garantindo que a imagem principal suma totalmente */
 .product-card:hover .product-image {
     opacity: 0;
 }
@@ -625,7 +624,7 @@ img {
     padding: 20px;
     text-align: center;
     border-radius: 0 0 5px 5px;
-    flex-grow: 1; /* Faz a área de info preencher a altura restante */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -649,7 +648,7 @@ img {
     border: 2px solid var(--color-accent);
     color: var(--color-accent);
     padding: 12px 25px;
-    width: 100%; /* Preenche a largura do card */
+    width: 100%; 
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 5px;
@@ -661,7 +660,6 @@ img {
     color: var(--color-heading);
 }
 
-/* Estilos específicos para a página interna de detalhes do produto */
 .product-details-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -772,7 +770,7 @@ img {
     transform: translateY(0);
 }
 
-/* --- RESPONSIVIDADE --- */
+/* --- RESPONSIVIDADE PARA CELULAR E TABLET --- */
 @media (max-width: 992px) {
     .about-flex-container {
         flex-direction: column;
@@ -800,4 +798,21 @@ img {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* REGRAS ESPECÍFICAS DO SLIDER PARA CELULAR */
+    .member-slider {
+        padding: 30px 15px; /* Diminui as margens internas da caixa */
+    }
+    .slide-photo {
+        width: 200px; /* Reduz a foto no celular para caber melhor */
+        height: 200px;
+    }
+    .slider-btn {
+        /* Alinha perfeitamente com a foto menor do celular (30px padding + 100px metade da foto) */
+        top: 130px; 
+        padding: 8px 12px; /* Setinha um pouco menor */
+        font-size: 1.2rem;
+    }
+    #prevBtn { left: 5px; } /* Joga as setas mais para os cantos da tela */
+    #nextBtn { right: 5px; }
 }
