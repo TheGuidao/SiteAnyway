@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anyway - Lançamentos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="band-logo">ANYWAY</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="lancamentos.html" class="active">Lançamentos</a></li>
+                    <li><a href="merch.html">Merch</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title-section">
+            <div class="container">
+                <h1>DISCOGRAFIA</h1>
+            </div>
+        </section>
+
+        <div class="container page-content">
+            
+            <section class="section-block reveal">
+                <h2 class="section-title">LANÇAMENTO MAIS RECENTE</h2>
+                
+                <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                    <h3 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 5px; color: var(--color-heading);">Insônia</h3>
+                    <p style="color: #888; margin-bottom: 30px; font-size: 1.1rem;">Lançado em 2 de Agosto de 2024</p>
+                    <iframe style="border-radius:12px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);" src="https://open.spotify.com/embed/track/1YH6Pzb7WUKvdwqo5PkIpc?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </section>
+
+            <section class="section-block reveal">
+                <h2 class="section-title">CATÁLOGO COMPLETO</h2>
+                
+                <div class="releases-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: start;">
+                    
+                    <div class="release-embed-item reveal" style="transition: transform 0.3s ease;">
+                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1YH6Pzb7WUKvdwqo5PkIpc?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+
+                    <div class="release-embed-item reveal" style="transition: transform 0.3s ease;">
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2dRu3EhPDrCPJc0m8TDuQn?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Anyway. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://open.spotify.com/intl-pt/artist/21cmnCgzTt7ZYPJB0TRyvt?si=PkerDkOZT9qXnSkQQWX2hg" target="_blank">Spotify</a>
+                <a href="https://www.youtube.com/@bandanyway" target="_blank">YouTube</a>
+                <a href="https://www.instagram.com/bandanyway/" target="_blank">Instagram</a>
+                <a href="#" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- EFEITO DE REVEAL (FADE-IN NO SCROLL) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const hiddenElements = document.querySelectorAll('.reveal');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>

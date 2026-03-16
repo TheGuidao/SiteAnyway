@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anyway - Merch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="band-logo">ANYWAY</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="lancamentos.html">Lançamentos</a></li>
+                    <li><a href="merch.html" class="active">Merch</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title-section">
+            <div class="container">
+                <h1>MERCH OFICIAL</h1>
+            </div>
+        </section>
+
+        <div class="container page-content">
+            <div class="store-filters reveal">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="camisetas">Camisetas</button>
+                <button class="filter-btn" data-filter="copos">Copos</button>
+                <button class="filter-btn" data-filter="acessorios">Acessórios</button>
+            </div>
+
+            <div class="products-grid">
+
+                <a href="produto-camiseta-logo.html" class="product-card-link reveal" data-category="camisetas">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/Camisa_Anyway_Frente_Preta.png" alt="Camisa Logo Anyway" class="product-image">
+                            <img src="img/Camisa_Anyway_Costas_Preta.png" alt="Camisa Logo Anyway Costas" class="product-image-hover">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Camisa Logo Anyway</h3>
+                            <p class="product-price">A partir de R$ 60,00</p>
+                            <span class="btn-details">Ver Detalhes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="produto-copo-logo.html" class="product-card-link reveal" data-category="copos"> 
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="img/Copo_Anyway_Frente.jpeg" alt="Copo Anyway Frente" class="product-image">
+                            <img src="img/Copo_Anyway_Verso.jpeg" alt="Copo Anyway Verso" class="product-image-hover">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Copo Personalizado Anyway</h3>
+                            <p class="product-price">A partir de R$ 60,00</p>
+                            <span class="btn-details">Ver Detalhes</span>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2026 Anyway. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://open.spotify.com/intl-pt/artist/21cmnCgzTt7ZYPJB0TRyvt?si=PkerDkOZT9qXnSkQQWX2hg" target="_blank">Spotify</a>
+                <a href="https://www.youtube.com/@bandanyway" target="_blank">YouTube</a>
+                <a href="https://www.instagram.com/bandanyway/" target="_blank">Instagram</a>
+                <a href="#" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- FILTROS DA LOJA ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const products = document.querySelectorAll('.product-card-link');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filterValue = btn.getAttribute('data-filter');
+
+                products.forEach(product => {
+                    if (filterValue === 'todos' || product.getAttribute('data-category') === filterValue) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // --- EFEITO DE REVEAL (FADE-IN NO SCROLL) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const hiddenElements = document.querySelectorAll('.reveal');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anyway - Camisa Logo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="band-logo">ANYWAY</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="lancamentos.html">Lançamentos</a></li>
+                    <li><a href="merch.html" class="active">Merch</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-content">
+        <div class="product-details-grid">
+            
+            <div class="product-details-image reveal">
+                <div class="product-gallery">
+                    <img id="img-frente" class="gallery-slide active" src="img/Camisa_Anyway_Frente_Preta.png" alt="Camisa Logo Anyway Frente">
+                    <img id="img-costas" class="gallery-slide" src="img/Camisa_Anyway_Costas_Preta.png" alt="Camisa Logo Anyway Costas">
+                    <button id="prevGalleryBtn" class="gallery-btn">❮</button>
+                    <button id="nextGalleryBtn" class="gallery-btn">❯</button>
+                </div>
+            </div>
+
+            <div class="product-details-info reveal">
+                <h1 class="product-page-title">Camisa Logo Anyway</h1>
+                <p class="product-page-price" id="preco-exibicao">A partir de R$ 60,00</p>
+                <p class="product-page-description">
+                    Camiseta de alta qualidade, 100% algodão, com a estampa do logo oficial da Anyway. Perfeita para shows e para o dia a dia.
+                </p>
+
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="cor">Cor:</label>
+                        <select id="cor" name="cor" required>
+                            <option value="">Selecione a cor</option>
+                            <option value="Preta">Preta</option>
+                            <option value="Branca">Branca</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tamanho">Tamanho:</label>
+                        <select id="tamanho" name="tamanho" required>
+                            <option value="">Selecione o tamanho</option>
+                            <option value="PP">PP</option>
+                            <option value="P">P</option>
+                            <option value="M">M</option>
+                            <option value="G">G</option>
+                            <option value="GG">GG</option>
+                            <option value="G1">G1</option>
+                        </select>
+                    </div>
+
+                    <hr class="form-divider">
+
+                    <div class="form-group">
+                        <label for="nome">Nome e Sobrenome:</label>
+                        <input type="text" id="nome" name="nome" minlength="3" placeholder="Ex: João Silva" required>
+                        <span class="error-msg" id="erro-nome" style="color: #ff4d4d; font-size: 0.8rem; display: none;">O nome precisa ter pelo menos 3 letras.</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="endereco">Endereço Completo (Rua, Nº, Bairro, Cidade, CEP):</label>
+                        <input type="text" id="endereco" name="endereco" minlength="10" placeholder="Ex: Rua das Flores, 123..." required>
+                        <span class="error-msg" id="erro-endereco" style="color: #ff4d4d; font-size: 0.8rem; display: none;">Digite um endereço completo (mín. 10 caracteres).</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Ex: email@exemplo.com" required>
+                        <span class="error-msg" id="erro-email" style="color: #ff4d4d; font-size: 0.8rem; display: none;">Por favor, digite um email válido com @.</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Telefone (com DDD):</label>
+                        <input type="tel" id="telefone" name="telefone" pattern="[0-9]{10,11}" placeholder="Ex: 13999999999" required>
+                        <span class="error-msg" id="erro-telefone" style="color: #ff4d4d; font-size: 0.8rem; display: none;">Apenas números. Ex: 13991080668</span>
+                    </div>
+
+                    <button type="button" id="submitButton" class="btn-cta" style="display: none; width: 100%; margin-top: 20px;">Enviar Pedido via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Anyway. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://open.spotify.com/intl-pt/artist/21cmnCgzTt7ZYPJB0TRyvt?si=PkerDkOZT9qXnSkQQWX2hg" target="_blank">Spotify</a>
+                <a href="https://www.youtube.com/@bandanyway" target="_blank">YouTube</a>
+                <a href="https://www.instagram.com/bandanyway/" target="_blank">Instagram</a>
+                <a href="#" target="_blank">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.gallery-slide');
+        const prevGalleryBtn = document.getElementById('prevGalleryBtn');
+        const nextGalleryBtn = document.getElementById('nextGalleryBtn');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        nextGalleryBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        prevGalleryBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        const corSelect = document.getElementById('cor');
+        const imgFrente = document.getElementById('img-frente');
+        const imgCostas = document.getElementById('img-costas');
+
+        corSelect.addEventListener('change', function() {
+            if (this.value === 'Branca') {
+                imgFrente.src = 'img/Camisa_Anyway_Frente_Branca.png';
+                imgCostas.src = 'img/Camisa_Anyway_Costas_Branca.png';
+            } else {
+                imgFrente.src = 'img/Camisa_Anyway_Frente_Preta.png';
+                imgCostas.src = 'img/Camisa_Anyway_Costas_Preta.png';
+            }
+        });
+
+        const tamanhoSelect = document.getElementById('tamanho');
+        const precoExibicao = document.getElementById('preco-exibicao');
+        
+        const precosPorTamanho = {
+            'PP': '60,00',
+            'P': '60,00',
+            'M': '65,00',
+            'G': '70,00',
+            'GG': '75,00',
+            'G1': '80,00'
+        };
+
+        tamanhoSelect.addEventListener('change', function() {
+            const tamanhoEscolhido = this.value;
+            if (precosPorTamanho[tamanhoEscolhido]) {
+                precoExibicao.innerText = `R$ ${precosPorTamanho[tamanhoEscolhido]}`;
+            } else {
+                precoExibicao.innerText = 'A partir de R$ 60,00';
+            }
+        });
+
+        const orderForm = document.getElementById('orderForm');
+        const submitButton = document.getElementById('submitButton');
+        const formInputs = orderForm.querySelectorAll('input, select');
+
+        function checkFormValidity() {
+            let formIsValid = true;
+
+            formInputs.forEach(input => {
+                const erroSpan = document.getElementById(`erro-${input.id}`);
+                
+                if (input.value.trim() !== '') {
+                    if (!input.checkValidity()) {
+                        formIsValid = false;
+                        if(erroSpan) erroSpan.style.display = 'block'; 
+                    } else {
+                        if(erroSpan) erroSpan.style.display = 'none'; 
+                    }
+                } else {
+                    formIsValid = false; 
+                    if(erroSpan) erroSpan.style.display = 'none'; 
+                }
+            });
+
+            if (formIsValid) {
+                submitButton.style.display = 'block';
+            } else {
+                submitButton.style.display = 'none';
+            }
+        }
+
+        formInputs.forEach(input => {
+            input.addEventListener('input', checkFormValidity);
+            input.addEventListener('blur', checkFormValidity); 
+        });
+
+        submitButton.addEventListener('click', function() {
+            const bandWhatsAppNumber = '5513991080668'; 
+
+            const produto = document.querySelector('.product-page-title').innerText;
+            const cor = document.getElementById('cor').value;
+            const tamanho = document.getElementById('tamanho').value;
+            const nome = document.getElementById('nome').value;
+            const endereco = document.getElementById('endereco').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            
+            const precoFinal = precosPorTamanho[tamanho] ? `R$ ${precosPorTamanho[tamanho]}` : 'Valor a confirmar';
+
+            let message = `Olá, gostaria de comprar!\n\n`;
+            message += `*Produto:* ${produto}\n`;
+            message += `*Cor:* ${cor}\n`;
+            message += `*Tamanho:* ${tamanho}\n`;
+            message += `*Valor do Produto:* ${precoFinal}\n\n`;
+            message += `--- Meus Dados ---\n`;
+            message += `*Nome:* ${nome}\n`;
+            message += `*Endereço:* ${endereco}\n`;
+            message += `*Email:* ${email}\n`;
+            message += `*Telefone:* ${telefone}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${bandWhatsAppNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // --- EFEITO DE REVEAL (FADE-IN NO SCROLL) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const hiddenElements = document.querySelectorAll('.reveal');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
