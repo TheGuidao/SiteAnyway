@@ -33,7 +33,7 @@ Os arquivos originais de `img/` podem permanecer. As páginas novas usam `img/op
 | Conteúdo | Arquivo |
 | --- | --- |
 | Abertura, novidades e chamada do EP | `index.html` |
-| Player, lista de faixas e singles | `lancamentos.html` |
+| Player do EP, lista de faixas e webclipe | `lancamentos.html` |
 | História e integrantes | `sobre.html` |
 | Vitrine de produtos | `merch.html` |
 | Campos e texto da camiseta | `produto-camiseta-logo.html` |

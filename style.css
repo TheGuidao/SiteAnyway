@@ -891,34 +891,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
   border-top:1px solid var(--line);
   padding-top:60px;
 }
-.singles-section {
-  padding-top:0;
-}
-.singles-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-}
-.singles-grid article {
-  border-top:1px solid var(--line);
-  padding-top:22px;
-}
-.single-heading {
-  display:flex;
-  align-items:center;
-  gap:20px;
-  margin-bottom:22px;
-}
-.single-heading>span {
-  font-size:10px;
-  color:var(--muted);
-}
-.single-heading h3 {
-  font-size:36px;
-}
-.singles-grid article>.text-link {
-  margin-top:12px;
-}
 .about-panorama {
   height:clamp(270px,39vw,600px);
   position:relative;
@@ -1806,13 +1778,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
   }
   .page-intro>p:last-child {
     font-size:12px;
-  }
-  .singles-grid {
-    grid-template-columns:1fr;
-    gap:35px;
-  }
-  .singles-section {
-    padding-top:0;
   }
   .history {
     grid-template-columns:1fr;
